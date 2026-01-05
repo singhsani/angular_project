@@ -68,3 +68,160 @@ To display a TypeScript property or variable value in the UI, use {{ }}. This is
 ## router-outlet in Angular
     <router-outlet> is a directive provided by Angular Router.
     It acts as a placeholder in the template where routed components are displayed.
+
+### Ways to Set and Get Value in Input field 
+    Make input field pass and function
+    Get Value with event
+
+### Style Option
+    component style
+    Global style
+    make new file for global style
+    internal style
+    style in component.ts file
+    load multiple css file in component  
+
+### signal 
+
+### two way binding
+     using ngModul in (banana in [()])
+
+### Dynamic style
+    declare style in .ts file ex-: bgColor="red"
+    and import on html page ex-: [style.bgColor]
+
+
+### What Directives Are in Angular
+
+    A directive in Angular is a class marked with the @Directive decorator that adds behavior to elements in your application — think of it as a way to extend HTML with Angular’s power. 
+    Angular
+
+    Angular doesn’t treat directives separately from components — in fact:
+
+    A Component is a type of directive with an associated template.
+
+    Other directives add behavior without their own template. 
+    Angular
+
+### Three Types of Directives
+#### 1️⃣ Component Directives
+
+            These are Angular’s main building blocks — every Angular component (@Component) is technically a directive with a template:
+
+            @Component({
+            selector: 'app-hello',
+            template: `<h1>Hello World</h1>`
+            })
+            export class HelloComponent {}
+
+
+            So components are specialized directives with UI. 
+            Angular
+
+#### 2️⃣ Attribute Directives
+
+            Attribute directives change the appearance or behavior of host elements. They don’t add/remove DOM nodes — but update how elements look or act.
+
+            👉 Common built-in ones:
+
+            NgClass — add/remove CSS classes dynamically
+
+            NgStyle — add/remove inline styles
+
+            NgModel — two-way binding for form controls 
+            Angular
+
+            Example: using NgStyle to change background color:
+
+            <div [ngStyle]="{ backgroundColor: isActive ? 'lightgreen' : 'lightgray' }">
+            Styled box
+            </div>
+
+#### 3️⃣ Structural Directives
+
+            Structural directives change the DOM layout by adding or removing elements.
+
+            They are typically prefixed with *:
+
+            *ngIf — include/exclude content based on a condition
+
+            *ngFor — repeat a template for each item in a list
+
+            *ngSwitch, *ngSwitchCase, *ngSwitchDefault — switch between views 
+            Angular
+
+            Example:
+
+            <ul>
+            <li *ngFor="let item of items">
+                {{ item }}
+            </li>
+            </ul>
+
+            <div *ngIf="isLoggedIn">
+            Welcome back!
+            </div>
+
+
+            These directives control whether templates exist in the DOM. 
+            SparkCodehub
+
+#### 🛠 Creating a Custom Directive
+
+Here’s how you define an attribute directive:
+
+import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]', // use as attribute
+  standalone: true
+})
+export class HighlightDirective {
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', 'yellow');
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor');
+  }
+}
+
+
+Then in a template:
+
+<p appHighlight> Hover me to highlight! </p>
+
+### 🧠 Behind the Scenes: The @Directive API
+
+        At its core, a directive class is:
+
+        @Directive({
+        selector: string,
+        inputs?: string[],
+        outputs?: string[],
+        providers?: Provider[],
+        exportAs?: string,
+        host?: { [key:string]: string },
+        standalone?: boolean,
+        hostDirectives?: any[],
+        })
+        export class MyDirective {}
+
+
+        selector determines where the directive applies
+
+        standalone: true lets you use it without declaring it in a module 
+        Angular
+
+
+
+### 🧩 Summary
+    Directive Type	Purpose
+    Component	UI + behavior (template)
+    Attribute	Change appearance/behavior of elements
+    Structural	Add/remove or shape DOM layout
+

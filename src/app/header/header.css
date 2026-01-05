@@ -1,0 +1,22 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    /* padding: 13px; */
+    /* margin: 14px; */
+    text-decoration: none;
+    justify-content: space-between;
+    width: 310px;
+}
+ul li a{
+    text-decoration: none;
+    
+}
+.active{
+    color:red;
+}

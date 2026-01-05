@@ -1,13 +1,45 @@
 
 <div style="text-align: center;">
-    <h2 class="count">{{count}}</h2>
+    <app-header></app-header>
+    
+    <!-- <h2 class="count">{{count}}</h2>
     <div class="btn-group">
         <button (click)="handleCounter('minus')" class="btn btn-blue">Decrement</button>
         <button (click)="handleCounter('reset')" class="btn btn-red">Reset</button>
         <button (click)="handleCounter('plus')" class="btn btn-green">Increment</button>
         
     </div>
+ <button (click)="show()">show</button>
+<button (click)="hide()">hide</button>
+<button (click)="toggel()">toggel</button>-->
+<!-- use if condition  -->
+<!-- @if(display){
+    <div style="width:100px; height: 200px; background-color: green;">
 
 
+    </div>
+} 
+
+<span> value : {{value()}}</span>
+<span> value : {{x}}</span>
+<button (click)="update()">set</button>  -->
+<hr>
+<h4>{{message}}</h4>
+<!-- <h1> To Do List</h1>
+<input type="text" [(ngModel)]="taskInput" placeholder="enter task" >
+<button style="padding: 2px; color: blue; text-emphasis-color: white;" (click)="addTask()">Add Task</button>
+<ul>
+    @for(task of taskList ; track task){
+        <li>
+            {{task.task}}
+            <button style="margin-left: 10px; color: red;"  (click)="deleteTask(task.id)">Delete</button>
+        </li>
+    }
+    </ul> -->
+<!-- two way binding -->
+ <!--<input type="text" [(ngModel)]="message" placeholder="Enter text">
+<h3>{{message}}</h3> -->
+<!-- <app-login></app-login>
+<app-sign-up></app-sign-up> -->
 </div>
 <router-outlet></router-outlet>
